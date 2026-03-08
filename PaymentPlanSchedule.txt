@@ -1,0 +1,60 @@
+{
+  "name": "PaymentPlanSchedule",
+  "type": "object",
+  "properties": {
+    "payment_plan_id": {
+      "type": "string",
+      "description": "Reference to parent PaymentPlan"
+    },
+    "scheduled_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when payment is scheduled"
+    },
+    "amount": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Amount for this scheduled payment"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "successful",
+        "failed"
+      ],
+      "default": "pending",
+      "description": "Payment status"
+    },
+    "marked_by_user_id": {
+      "type": "string",
+      "description": "ID of admin who marked the payment status"
+    },
+    "marked_by_user_name": {
+      "type": "string",
+      "description": "Name of admin who marked the payment status"
+    },
+    "marked_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the payment was marked"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notes about this payment"
+    }
+  },
+  "required": [
+    "payment_plan_id",
+    "scheduled_date",
+    "amount"
+  ],
+  "rls": {
+    "read": {},
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

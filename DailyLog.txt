@@ -1,0 +1,58 @@
+{
+  "name": "DailyLog",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ID of the user who created this log"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "Name of the user for easy reference"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the logged activity"
+    },
+    "location": {
+      "type": "string",
+      "enum": [
+        "RMC",
+        "NMC"
+      ],
+      "description": "Location (RMC or NMC)"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes about the day"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted"
+      ],
+      "default": "draft",
+      "description": "Status of the log entry"
+    },
+    "is_locked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this log is locked by a manager"
+    },
+    "is_vim_entry": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a VIM (Virtual Intake Manager) entry"
+    }
+  },
+  "required": [
+    "user_id",
+    "date"
+  ],
+  "rls": {
+    "read": {},
+    "write": {}
+  }
+}

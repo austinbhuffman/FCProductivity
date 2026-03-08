@@ -1,0 +1,50 @@
+{
+  "name": "MonthEndSubmission",
+  "type": "object",
+  "properties": {
+    "month": {
+      "type": "string",
+      "description": "Month in yyyy-MM format (e.g. 2026-03)"
+    },
+    "submitted_by_user_id": {
+      "type": "string",
+      "description": "ID of the user who submitted"
+    },
+    "submitted_by_user_name": {
+      "type": "string",
+      "description": "Name of the user who submitted"
+    },
+    "pending_submissions": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of pending submissions at month end"
+    },
+    "approved_submissions": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of approved submissions at month end"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "submitted"
+      ],
+      "default": "submitted",
+      "description": "Always submitted"
+    }
+  },
+  "required": [
+    "month",
+    "submitted_by_user_id"
+  ],
+  "rls": {
+    "read": {},
+    "write": {}
+  }
+}

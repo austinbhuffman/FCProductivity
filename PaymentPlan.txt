@@ -1,0 +1,58 @@
+{
+  "name": "PaymentPlan",
+  "type": "object",
+  "properties": {
+    "total_amount": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Total amount of the payment plan"
+    },
+    "num_months": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of months for the payment plan"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Payment plan start date"
+    },
+    "created_by_user_id": {
+      "type": "string",
+      "description": "ID of user who created the payment plan"
+    },
+    "created_by_user_name": {
+      "type": "string",
+      "description": "Name of user who created the payment plan"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "cancelled"
+      ],
+      "default": "active",
+      "description": "Payment plan status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about the payment plan"
+    }
+  },
+  "required": [
+    "total_amount",
+    "num_months",
+    "start_date",
+    "created_by_user_id",
+    "created_by_user_name"
+  ],
+  "rls": {
+    "read": {},
+    "write": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

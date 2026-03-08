@@ -1,0 +1,81 @@
+{
+  "name": "MedicaidBabyLog",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ID of the user who created this log"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "Name of the user for easy reference"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the logged activity"
+    },
+    "total_babies": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Total number of babies"
+    },
+    "change_forms": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Change forms"
+    },
+    "mom_mcd_applications": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Mom Medicaid applications"
+    },
+    "commercial_babies": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Commercial insurance babies"
+    },
+    "baby_name_updates": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Baby name updates only"
+    },
+    "allkids_mcd_applications": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "AllKids Medicaid applications"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes about the day"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted"
+      ],
+      "default": "draft",
+      "description": "Status of the log entry"
+    },
+    "is_locked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this log is locked by a manager"
+    }
+  },
+  "required": [
+    "user_id",
+    "date"
+  ],
+  "rls": {
+    "read": {},
+    "write": {}
+  }
+}

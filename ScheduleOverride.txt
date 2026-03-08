@@ -1,0 +1,36 @@
+{
+  "name": "ScheduleOverride",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Specific date for this schedule entry"
+    },
+    "employee_name": {
+      "type": "string",
+      "description": "Name of employee"
+    },
+    "is_off": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether employee is off this day"
+    },
+    "shift_start": {
+      "type": "string",
+      "description": "Shift start time (e.g., 7:00 AM)"
+    },
+    "shift_end": {
+      "type": "string",
+      "description": "Shift end time (e.g., 5:00 PM)"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional notes"
+    }
+  },
+  "required": [
+    "date",
+    "employee_name"
+  ]
+}

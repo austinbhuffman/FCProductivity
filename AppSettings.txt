@@ -1,0 +1,36 @@
+{
+  "name": "AppSettings",
+  "type": "object",
+  "properties": {
+    "fiscal_year_start_month": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12,
+      "default": 10,
+      "description": "Fiscal year start month (1=Jan, 10=Oct, etc.)"
+    },
+    "setting_name": {
+      "type": "string",
+      "default": "fiscal_settings",
+      "description": "Settings identifier"
+    }
+  },
+  "required": [],
+  "rls": {
+    "read": {},
+    "write": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "manager"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "name": "PayerBreakdown",
+  "type": "object",
+  "properties": {
+    "daily_log_id": {
+      "type": "string",
+      "description": "Reference to parent DailyLog"
+    },
+    "payer_type": {
+      "type": "string",
+      "enum": [
+        "Commercial",
+        "Medicare",
+        "SelfPay"
+      ],
+      "description": "Type of payer"
+    },
+    "new_patients": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of new patients"
+    },
+    "single_coverage": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Patients with single coverage (not applicable for SelfPay)"
+    },
+    "dual_coverage": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Patients with dual coverage (not applicable for SelfPay)"
+    },
+    "patients_called": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of patients called"
+    },
+    "room_visits": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of room visits"
+    },
+    "patients_not_seen": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of patients not seen"
+    },
+    "insurance_updates": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of insurance updates (not applicable for SelfPay)"
+    },
+    "pos_collections_count": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of point of service collections"
+    },
+    "pos_amount": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "description": "Point of service collection amount"
+    },
+    "pos_potential": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "description": "POS Potential amount"
+    },
+    "qmb_screening": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "QMB Screening (Medicare only)"
+    },
+    "qmb_enrollments": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "QMB Enrollments (Medicare only)"
+    },
+    "qmb_paperwork": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "QMB Paperwork (Medicare only)"
+    },
+    "sp_converted_to_insurance": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Self-Pay converted to insurance (SelfPay only)"
+    },
+    "inpatient_financial_assistance": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Inpatient Financial Assistance cases (SelfPay only)"
+    },
+    "walkin_callin_financial_assistance": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Walk-In/Call-In Financial Assistance cases (SelfPay only)"
+    },
+    "marketplace_qualified": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Marketplace Qualified (SelfPay only)"
+    },
+    "marketplace_enrolled": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Marketplace Enrolled (SelfPay only)"
+    },
+    "medicaid_qualified": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Medicaid Qualified (SelfPay only)"
+    },
+    "medicaid_enrolled": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Medicaid Enrolled (SelfPay only)"
+    }
+  },
+  "required": [
+    "daily_log_id",
+    "payer_type"
+  ],
+  "rls": {
+    "read": {},
+    "write": {}
+  }
+}

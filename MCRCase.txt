@@ -1,0 +1,121 @@
+{
+  "name": "MCRCase",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Auto-generated or custom Case ID"
+    },
+    "assigned_counselor": {
+      "type": "string",
+      "description": "Assigned counselor name"
+    },
+    "benefit_period_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Benefit Period Start Date (derived)"
+    },
+    "benefit_period_category": {
+      "type": "string",
+      "enum": [
+        "Deductible Days",
+        "Coinsurance Days",
+        "Lifetime Reserve Days",
+        "Beyond Lifetime Reserve Days"
+      ],
+      "description": "Benefit period category at time of entry"
+    },
+    "days_remaining_at_entry": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Days remaining in the benefit period at time of entry"
+    },
+    "admission_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Admission Date (required)"
+    },
+    "discharge_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Discharge Date (optional)"
+    },
+    "last_census_verified": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of last census verification"
+    },
+    "lrd_previously_used": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Lifetime Reserve Days previously used"
+    },
+    "form_status": {
+      "type": "string",
+      "enum": [
+        "Not Needed",
+        "Pending",
+        "Signed Opt-In",
+        "Signed Opt-Out"
+      ],
+      "default": "Not Needed",
+      "description": "LRD form status"
+    },
+    "form_given_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date form was given to patient"
+    },
+    "form_returned_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date form was returned"
+    },
+    "form_uploaded": {
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No",
+        ""
+      ],
+      "default": "",
+      "description": "Whether the form has been uploaded"
+    },
+    "verified_by": {
+      "type": "string",
+      "description": "Staff initials of verifier"
+    },
+    "case_status": {
+      "type": "string",
+      "enum": [
+        "Active",
+        "Closed",
+        "Archived"
+      ],
+      "default": "Active",
+      "description": "Case workflow status"
+    },
+    "still_inpatient": {
+      "type": "string",
+      "enum": [
+        "Yes",
+        "No",
+        ""
+      ],
+      "default": "",
+      "description": "Whether patient is still inpatient"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Operational notes only \u2014 NO PHI"
+    }
+  },
+  "required": [
+    "admission_date"
+  ],
+  "rls": {
+    "read": {},
+    "write": {}
+  }
+}

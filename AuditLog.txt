@@ -1,0 +1,55 @@
+{
+  "name": "AuditLog",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ID of user who made the change"
+    },
+    "user_name": {
+      "type": "string",
+      "description": "Name of user for easy reference"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "create",
+        "update",
+        "delete",
+        "lock",
+        "unlock"
+      ],
+      "description": "Type of action performed"
+    },
+    "entity_type": {
+      "type": "string",
+      "description": "Type of entity affected"
+    },
+    "entity_id": {
+      "type": "string",
+      "description": "ID of the affected entity"
+    },
+    "before_data": {
+      "type": "object",
+      "description": "Data before the change"
+    },
+    "after_data": {
+      "type": "object",
+      "description": "Data after the change"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional context about the change"
+    }
+  },
+  "required": [
+    "user_id",
+    "action",
+    "entity_type"
+  ],
+  "rls": {
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

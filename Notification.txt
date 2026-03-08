@@ -1,0 +1,51 @@
+{
+  "name": "Notification",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "ID of the user who receives this notification"
+    },
+    "title": {
+      "type": "string",
+      "description": "Notification title"
+    },
+    "message": {
+      "type": "string",
+      "description": "Notification message"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "reminder",
+        "info",
+        "warning",
+        "success"
+      ],
+      "default": "info",
+      "description": "Type of notification"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the notification has been read"
+    },
+    "related_log_id": {
+      "type": "string",
+      "description": "Related daily log ID if applicable"
+    },
+    "action_url": {
+      "type": "string",
+      "description": "URL to navigate to when clicked"
+    }
+  },
+  "required": [
+    "user_id",
+    "title",
+    "message"
+  ],
+  "rls": {
+    "read": {},
+    "write": {}
+  }
+}

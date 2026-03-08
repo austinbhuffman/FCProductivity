@@ -1,0 +1,35 @@
+{
+  "name": "WalkInCallIn",
+  "type": "object",
+  "properties": {
+    "daily_log_id": {
+      "type": "string",
+      "description": "Reference to parent DailyLog"
+    },
+    "walk_ins": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of walk-in patients"
+    },
+    "pos_collections_count": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 0,
+      "description": "Number of POS collections from walk-ins"
+    },
+    "pos_amount": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "description": "POS amount collected from walk-ins"
+    }
+  },
+  "required": [
+    "daily_log_id"
+  ],
+  "rls": {
+    "read": {},
+    "write": {}
+  }
+}
