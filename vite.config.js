@@ -2,11 +2,12 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/FCProductivity/',
   plugins: [react()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-});
+}));
